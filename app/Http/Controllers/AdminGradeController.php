@@ -8,26 +8,25 @@
 	class AdminGradeController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function cbInit() {
-	    	# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->table 			   = "grade";	        
-			$this->title_field         = "id";
-			$this->limit               = 20;
-			$this->orderby             = "id,desc";
-			$this->show_numbering      = FALSE;
-			$this->global_privilege    = FALSE;	        
-			$this->button_table_action = TRUE;   
-			$this->button_action_style = "button_icon";     
-			$this->button_add          = TRUE;
-			$this->button_delete       = TRUE;
-			$this->button_edit         = TRUE;
-			$this->button_detail       = TRUE;
-			$this->button_show         = TRUE;
-			$this->button_filter       = TRUE;        
-			$this->button_export       = FALSE;	        
-			$this->button_import       = FALSE;
-			$this->button_bulk_action  = TRUE;	
-			$this->sidebar_mode		   = "normal"; //normal,mini,collapse,collapse-mini
-			# END CONFIGURATION DO NOT REMOVE THIS LINE						      
+
+			# START CONFIGURATION DO NOT REMOVE THIS LINE
+			$this->title_field = "id";
+			$this->limit = "20";
+			$this->orderby = "id,desc";
+			$this->global_privilege = false;
+			$this->button_table_action = true;
+			$this->button_bulk_action = true;
+			$this->button_action_style = "button_icon";
+			$this->button_add = true;
+			$this->button_edit = true;
+			$this->button_delete = true;
+			$this->button_detail = true;
+			$this->button_show = true;
+			$this->button_filter = true;
+			$this->button_import = false;
+			$this->button_export = false;
+			$this->table = "grade";
+			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 	        $this->col = [];
@@ -37,14 +36,22 @@
 		$this->col[] = array("label"=>"Aluno","name"=>"aluno" );
 
 			# END COLUMNS DO NOT REMOVE THIS LINE
-			# START FORM DO NOT REMOVE THIS LINE
-		$this->form = [];
-		$this->form[] = ["label"=>"Atividade","name"=>"atividade","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-		$this->form[] = ["label"=>"Dia","name"=>"dia","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-		$this->form[] = ["label"=>"Horario","name"=>"horario","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
-		$this->form[] = ["label"=>"Aluno","name"=>"aluno","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
 
-			# END FORM DO NOT REMOVE THIS LINE     
+			# START FORM DO NOT REMOVE THIS LINE
+			$this->form = [];
+			$this->form[] = ['label'=>'Atividade','name'=>'atividade','type'=>'select','validation'=>'required|min:1|max:255','width'=>'col-sm-10','dataenum'=>'CoxasGluteos;Biceps;Ombros;Panturrilha;Antebraço;Trapezio;Cardio'];
+			$this->form[] = ['label'=>'Dia','name'=>'dia','type'=>'select','validation'=>'required|min:1|max:255','width'=>'col-sm-10','dataenum'=>'Segunda;Terça;Quarta;Quinta;Sexta;Sábado'];
+			$this->form[] = ['label'=>'Horario','name'=>'horario','type'=>'datetime','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Aluno','name'=>'aluno','type'=>'select','validation'=>'required|min:1|max:255','width'=>'col-sm-10','dataenum'=>'OpçãoDeAluno'];
+			# END FORM DO NOT REMOVE THIS LINE
+
+			# OLD START FORM
+			//$this->form = [];
+			//$this->form[] = ["label"=>"Atividade","name"=>"atividade","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Dia","name"=>"dia","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Horario","name"=>"horario","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			//$this->form[] = ["label"=>"Aluno","name"=>"aluno","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
+			# OLD END FORM
 
 			/* 
 	        | ---------------------------------------------------------------------- 
